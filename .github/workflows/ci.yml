@@ -31,4 +31,6 @@ jobs:
         flake8 app/
       
     - name: Run tests
-      run: python app/app.py
+      run: |
+        python app/app.py
+        
