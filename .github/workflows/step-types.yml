@@ -1,0 +1,19 @@
+name: Step Types
+
+on:
+  workflow_dispatch:
+
+jobs:
+    say-hello-inline-bash:
+        runs-on: ubuntu-24.04
+        steps:
+            - name: Say Hello from Bash
+              run: echo "Hello, World!""
+    
+    say-hello-inline-python:
+        runs-on: ubuntu-24.04
+        steps:
+            - name: Say Hello from Python Shell
+              run: "print('Hello, World!')"
+              shell: python
+    
