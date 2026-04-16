@@ -1,6 +1,7 @@
 name: Triggering Events
 
 on:
+  workflow_dispatch:
   push:
     branches:
       - "github-actions/*"
@@ -12,15 +13,13 @@ on:
       - reopened
     paths:
       - "app/*.txt"
-      - "!./*.md"
-
-    workflow_dispatch:
+      - "!./*.md"    
   
-  jobs:
-    echo-event:
-      runs-on: ubuntu-latest
-      steps:
-        - name: dump full event json
-          run: |
-            echo "=== $GITHUB_EVENT_NAME payload ==="
-            cat "$GITHUB_EVENT_PATH"
+jobs:
+  echo-event:
+    runs-on: ubuntu-latest
+    steps:
+      - name: dump full event json
+        run: |
+          echo "=== $GITHUB_EVENT_NAME payload ==="
+          cat "$GITHUB_EVENT_PATH"
